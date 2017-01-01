@@ -15,7 +15,7 @@ Node.js
 npm  
 Karma  
 Jasmine  
-PhantomJs
+PhantomJs  
 AngularJs
 
 # Usage
