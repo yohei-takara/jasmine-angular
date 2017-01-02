@@ -1,23 +1,28 @@
 describe('demoAngularUnitTest', function() {
 
-  var scope, ctrl;
-
   // load the angular module
   beforeEach(module('demoApp'));
 
-  // inject angular directive
-  beforeEach(inject(function(_$rootScope_, _$controller_, _$filter_) {
-      var rootScope = _$rootScope_;
-      scope = rootScope.$new();
-      ctrl = _$controller_;
-  }));
-
   describe('controller test', function() {
-      it('ctrl name', function() {
 
-          var controller = ctrl('demoAppCtl', { $scope: scope });
+      var $scope, $controller, demoAppCtl;
 
-          expect(scope.name).toEqual("angular-unit-test");
+      // inject angular directive
+      beforeEach(inject(function(_$rootScope_, _$controller_, _$filter_) {
+          var rootScope = _$rootScope_;
+          $scope = rootScope.$new();
+          $controller = _$controller_;
+
+          // $controller('コントローラ名', { injectしているDirective: jasmine内で定義したDirective変数名} )
+          demoAppCtl = $controller('demoAppCtl', { $scope: $scope });
+      }));
+
+      it('$scope パラメータ テスト', function() {
+          expect($scope.name).toEqual("angular-unit-test");
+      });
+
+      it('demoFunction テスト', function() {
+          expect( $scope.demoFunction(3) ).toEqual(9);
       });
   });
 
