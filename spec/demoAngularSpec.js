@@ -8,7 +8,7 @@ describe('demoAngularUnitTest', function() {
       var $scope, $controller, demoAppCtl;
 
       // inject angular directive
-      beforeEach(inject(function(_$rootScope_, _$controller_, _$filter_) {
+      beforeEach(inject(function(_$rootScope_, _$controller_) {
           var rootScope = _$rootScope_;
           $scope = rootScope.$new();
           $controller = _$controller_;
