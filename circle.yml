@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  node:
+    version: 6.3.0
+  post:
+    - npm install -g npm@3
+
+dependencies:
+  override:
+    - npm cache clean
+    - npm install
+
+test:
+  override:
+    - npm run karma
